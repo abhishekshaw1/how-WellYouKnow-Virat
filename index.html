@@ -1,0 +1,60 @@
+<script>
+    var readLineSync = require('readline-sync');
+// var chalk = require('chalk');
+
+const highScorers = [{
+  name: "Sachin",
+  score: 3
+},{
+  name: "Anushka",
+  score: 2 
+}];
+
+const questionList = [{
+  questions:"Which year did Virat Kohli made his debut in ODI for India ? ",
+  answer: 2008
+},
+{
+  questions: "What was first odi score of Kohli ? ",
+  answer: 12
+},
+{ questions: "Which year did virat kohli won U-19 world cup ? ",
+  answer: 2008
+}];
+
+
+function playgame(){
+let score = 0;
+
+
+for(let i=0 ;i< questionList.length  ; i ++){
+
+  let  userInput = readLineSync.question(questionList[i].questions);
+  if(userInput == questionList[i].answer){
+    console.log("You are correct !");
+    score += 1 ;
+    console.log("Your Current Score: ",  score);
+  }else{
+    console.log("You gave a wrong answer :( ");
+    score += -1 ;
+    console.log("Your Current Score: ",  score);
+  }
+}
+console.log("Your Final Score: ",  score);
+}
+
+
+let userName = readLineSync.question("May i have you name please ?")
+
+console.log("Welcome ", userName);
+console.log("Exited to play the game :) , Please answer below questions on your favourite Cricketer !");
+playgame();
+
+ console.log("Top two high scorers are : " );
+
+for(let i=0 ; i<=highScorers.length -1 ; i++){
+  console.log(highScorers[i].name , " ," , "Score :" ,highScorers[i].score);
+}
+
+
+</script>
